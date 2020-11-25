@@ -1,0 +1,7 @@
+Copyright 2000 by Sun Microsystems, Inc.,
+901 San Antonio Road, Palo Alto, California, 94303, U.S.A.
+All rights reserved.
+ 
+You may only use this software in accordance with the 
+terms of the applicable license agreement you entered
+into with Sun concerning the software.

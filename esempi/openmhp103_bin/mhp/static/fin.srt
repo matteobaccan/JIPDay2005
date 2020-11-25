@@ -1,0 +1,274 @@
+1
+00:02:20,900  -->  00:02:22,200
+Hello
+
+2
+00:03:08,400  -->  00:03:10,200
+Hi
+
+3
+00:03:11,200  -->  00:03:12,700
+How are you?
+
+4
+00:03:14,000  -->  00:03:16,000
+I am fine, thanks.
+And you?
+
+5
+00:03:16,500  -->  00:03:18,600
+I am fine too.
+
+6
+00:03:23,700  -->  00:03:24,700
+Are you busy?
+
+7
+00:03:25,000  -->  00:03:26,000
+Yes, a bit.
+
+8
+00:03:26,200  -->  00:03:27,200
+Well...
+
+9
+00:03:27,800  -->  00:03:28,800
+Then I will not bother you
+
+10
+00:03:29,000  -->  00:03:30,100
+Oh, it is okay.
+
+11
+00:03:30,300  -->  00:03:31,900
+Tell me what is on your mind.
+
+12
+00:03:40,200  -->  00:03:41,200
+If it is ok?
+
+13
+00:03:43,100  -->  00:03:44,700
+Yes, it is.
+
+14
+00:03:45,000  -->  00:03:47,300
+Really?
+
+15
+00:03:48,800  -->  00:03:50,600
+Please...
+
+16
+00:03:52,800  -->  00:03:55,100
+Oh ok.
+How do you turn these off?
+
+17
+00:04:01,100  -->  00:04:02,600
+Oh, the subtitles?
+
+18
+00:04:04,600  -->  00:04:07,700
+Yes.
+
+19
+00:04:10,600  -->  00:04:11,700
+You have to get a control
+component and use it
+
+20
+00:04:14,900  -->  00:04:16,200
+What component?
+
+21
+00:04:24,000  -->  00:04:25,900
+SubtitlingLanguageControl
+
+22
+00:04:27,000  -->  00:04:28,800
+What is that?
+
+23
+00:04:30,100  -->  00:04:31,900
+It can be used to select
+language for subtitles
+
+24
+00:04:33,800  -->  00:04:36,200
+This is new for me
+
+25
+00:04:39,300  -->  00:04:41,100
+Subtitles are used in some
+countries
+
+26
+00:04:45,900  -->  00:04:48,100
+Oh... that is strange
+
+27
+00:04:54,100  -->  00:04:57,500
+No, actually it is quite
+useful
+
+28
+00:04:58,200  -->  00:05:01,100
+If you say so
+
+29
+00:05:01,900  -->  00:05:03,700
+Yes...
+
+30
+00:05:04,000  -->  00:05:05,400
+So...
+
+31
+00:05:07,500  -->  00:05:09,000
+How can I turn these off?
+
+32
+00:05:11,900  -->  00:05:13,600
+You have to find a reference
+
+33
+00:05:45,700  -->  00:05:48,200
+to a ServiceContext.
+
+34
+00:05:53,100  -->  00:05:54,500
+And then?
+
+35
+00:05:50,400  -->  00:05:52,000
+Use method
+getServiceContentHandlers()
+
+36
+00:05:53,300  -->  00:05:54,500
+to find out what controls
+can be found
+
+37
+00:06:32,800  -->  00:06:35,400
+Then select control
+SubtitlingLanguageControl
+
+38
+00:06:38,800  -->  00:06:40,400
+And...
+
+39
+00:07:46,400  -->  00:07:47,900
+Then you can use it's
+methods
+
+40
+00:07:51,200  -->  00:07:52,500
+For example what?
+
+41
+00:08:04,700  -->  00:08:06,700
+You can ask if the subtitles
+are on
+
+42
+00:08:59,100  -->  00:09:00,600
+You can call
+isSubtitlingOn
+
+43
+00:09:10,300  -->  00:09:13,100
+or you can call
+listAvailableLanguages()
+
+44
+00:09:14,600  -->  00:09:16,300
+Oh, I see.
+
+45
+00:10:32,400  -->  00:10:34,000
+And how about stopping the
+subtitles?
+
+46
+00:10:35,000  -->  00:10:36,400
+You can call setSubtitling
+
+47
+00:10:55,400  -->  00:10:57,000
+Use boolean value to
+set it on or off
+
+48
+00:11:01,600  -->  00:11:06,300
+You know, true if you want
+them on
+
+49
+00:11:07,900  -->  00:11:09,600
+and false, if you
+want them off.
+
+50
+00:11:10,100  -->  00:11:15,400
+Okay.
+I have to try that.
+
+51
+00:11:17,500  -->  00:11:19,400
+Remember!
+
+52
+00:11:19,900  -->  00:11:21,800
+What?
+
+53
+00:11:29,700  -->  00:11:31,300
+Remember to turn it back on
+
+54
+00:11:31,600  -->  00:11:33,400
+when your application
+is done!
+
+55
+00:11:34,100  -->  00:11:36,300
+I'll try to remember!
+
+56
+00:11:36,700  -->  00:11:38,300
+This text will
+
+57
+00:11:41,100  -->  00:11:42,200
+end
+
+58
+00:11:42,500  -->  00:11:45,800
+soon.
+
+59
+00:11:47,400  -->  00:11:48,600
+
+
+60
+00:11:51,700  -->  00:11:52,400
+
+
+61
+00:11:57,800  -->  00:11:58,900
+3
+
+62
+00:11:59,100  -->  00:12:00,500
+2
+
+63
+00:12:08,100  -->  00:12:10,200
+1
+
+64
+00:12:11,900  -->  00:12:13,600
+0

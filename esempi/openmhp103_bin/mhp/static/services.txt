@@ -1,0 +1,23 @@
+# finland
+original_network_id =0x20F6
+
+#network_n = network number, region, network_name_descriptor, id (hex)
+network_1 = 2, Turku, Digita_Turku, 0x3302
+
+#service_n  = logical channel num, transportid (hex), serviceid (hex), si type, name, provider name
+service_1=  1,   0x1001,   0x0011,  1,   YLE TV 1,      	YLE
+service_2=  2,   0x1001,   0x0021,  1 ,  YLE TV 2 ,		YLE
+service_3=  3,   0x2001,   0x0031,  1 ,  MTV3 D ,		MTV Oy
+service_4=  4,   0x3001,   0x0041,  1 ,  Nelonen ,		Ruutunelonen
+service_5=  5,   0x1001,   0x0051,  1 ,  YLE FST ,		YLE
+service_6=  6,   0x2001,   0x0061,  1 ,  Subtv ,		Citytv Oy
+service_7=  10,  0x2001,   0x00A1,  1 ,  Urheilukanava, 	Suomen Urheilutelevisio
+service_8=  12,  0x1001,   0x00C1,  1 ,  YLE24 ,		YLE
+service_9=  13,  0x1001,   0x00D1,  1 ,  YLE Teema ,		YLE
+service_10= 16,  0x3001,   0x0111,  1 ,  Nelonen Plus,  	Ruutunelonen
+service_11= 22,  0x3001,   0x0161,  1 ,  Estradi,       	Various (Administrated by Digita Oy)
+service_12= 26,  0x3001,   0x01A1,  1 ,  CANAL+,  		CANAL+
+service_13= 27,  0x3001,   0x01B1,  1 ,  CANAL+ KULTA , 	CANAL+
+service_14= 28,  0x3001,   0x01C1,  1 ,  CANAL+ SININEN,	CANAL+
+service_15= 29,  0x3001,   0x01D1,  1 ,  CANAL+ Infokanava,	CANAL+
+

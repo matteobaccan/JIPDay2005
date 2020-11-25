@@ -1,0 +1,12 @@
+<empty><empty><empty><string="power" image="power.png" keycode="VK_ESCAPE">
+<string="r" image="red.png" keycode="VK_COLORED_KEY_0"><string="g" image="green.png" keycode="VK_COLORED_KEY_1"><string="y" image="yellow.png" keycode="VK_COLORED_KEY_2"><string="b" image="blue.png" keycode="VK_COLORED_KEY_3">
+<empty><string="UP" keycode="VK_UP" image="up.png"><string="exit" image="exit.png" keycode="VK_CANCEL">
+<string="LEFT" keycode="VK_LEFT" image="left.png"><string="OK" keycode="VK_ENTER" image="ok.png"><string="RIGHT" keycode="VK_RIGHT" image="right.png">
+<string="vol+" keycode="VK_VOLUME_UP" image="volume_up.png"><string="DOWN" keycode="VK_DOWN" image="down.png"><string="p+" keycode="VK_CHANNEL_UP" image="channel_up.png">
+<string="vol-" keycode="VK_VOLUME_DOWN" image="volume_down.png"><string="Mute" keycode="VK_MUTE" image="mute.png"><string="p-" keycode="VK_CHANNEL_DOWN" image="channel_down.png">
+<string="1" keycode="VK_1"><string="2" keycode="VK_2"><string="3" keycode="VK_3">
+<string="4" keycode="VK_4"><string="5" keycode="VK_5"><string="6" keycode="VK_6">
+<string="7" keycode="VK_7"><string="8" keycode="VK_8"><string="9" keycode="VK_9">
+<string="text" image="text.png" keycode="VK_TELETEXT"><string="0" keycode="VK_0"><string="help" image="help.png" keycode="VK_HELP">
+<string="mode" image="mode.png" keycode="VK_SCREEN_MODE_NEXT"><string="subtitle" image="sub.png" keycode="VK_SUBTITLE">
+<string="info" image="info.png" keycode="VK_INFO"><string="guide" image="guide.png" keycode="VK_GUIDE">

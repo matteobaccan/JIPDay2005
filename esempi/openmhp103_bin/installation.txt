@@ -1,0 +1,68 @@
+How to download and install OpenMHP
+
+Read the whole text before installation.
+
+The OpenMHP environment can not be run without third party libraries. The classes specified in the JavaTV specification are not included in the OpenMHP distribution. At the moment users are requested to agree on Sun's community source license and to download the JavaTV reference implementation by Sun Microsystems.
+
+The Java Media Framework can be distributed in a binary form. The classes implementing JMF2.1 are included in the OpenMHP package.
+
+
+Installation steps (for Windows, see page bottom for Linux)
+
+Step 1.
+
+Check that you have Java 1.4. JRE installed. If you don't have it, please download and install it from Sun Microsystems. OpenMHp will not run without it. (Download page: http://java.sun.com/j2se/1.4.2/download.html)
+
+Download all required packages.
+
+Required packages are:
+
+	OpenMHP1.0.zip
+	Download OpenMHP package:
+	http://www.openmhp.org/downloads/openmhp_1_0.zip
+	
+	JavaTV reference implementation
+	Download the reference implementation from Sun Microsystems:
+	http://wwws.sun.com/software/communitysource/javatv/download.html
+
+	NOTE:
+	Currently AdaptationLayer is embedded in the environment. In future releases it should be downloaded separately.
+	(AdaptationLayer_workstation.zip is not available)
+	
+
+Step 2.
+
+Extract the contents from OpenMHP.zip to your favourite folder in your hard drive.
+
+
+Step 3.
+
+Extract the contents from JavaTV package to the OpenMHP's installation folder.
+
+The jar called 'javatv.jar' from the JavaTV package should be on the OpenMHP's classpath. Only the lib folder and a file named 'javatv.jar' are essential.
+
+That is it. You can now check if the installation has been successful with step 4.
+
+
+Step 4.
+
+Find the file 'startMHP.bat' from the OpenMHP folder. Double click the file, and the Application Manager window should appear.
+
+
+
+Errors
+
+If the OpenMHP will not start, check that you have installed javatv directly under the openmhp folder. The folder structure should look like this:
+
++-------openmhp_1.0
+	|
+	+--javatv_fcs
+	|
+	+--JMF2.1.1
+	|
+	+--mhp
+
+
+Linux
+
+Currently OpenMHP will not run in Linux without changes. If you want to run OpenMHP in your Linux-machine, you can check and correct the classpaths to match your system. This behaviour will be corrected in the next release.

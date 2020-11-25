@@ -1,0 +1,275 @@
+8.12.2004	RELEASE 1.0.3b
+		Fixed typos in:
+
+		Service
+		TransportStream
+		EndOfFilteringEvent
+		Section
+		SectionFilterGroup
+		CAException
+		DescrambleEvent
+		DescrambleProxy
+		MMIActiveEvent
+		DVBNetworkBoundLocator
+		StreamTable
+		DSMCCStream
+		DSMCCStreamEvent
+		IxcRegistry
+		FileAttributes
+		CAStopEvent
+		DripFeedPermission
+		Descriptor
+		ApplicationImageProvider
+
+
+7.12.2004	RELEASE 1.0.3 
+		Added new remote control.
+
+1.12.2004 	Found and fixed bug in DVBGraphicsImpl.create()
+
+29.11.2004	Partially implemented
+		org.dvb.si.Descriptor
+		org.dvb.net.tuning.TunerPermission
+		org.dvb.user.Facility
+		
+		Docs
+		org.dvb.media.DripFeedPermission
+		org.dvb.dsmcc.DSMCCStreamEvent
+		org.dvb.net.rc.RCPermission
+		org.dvb.si.SIRequest
+		org.dvb.ui.FontFactory
+
+19.11.2004	Implemented
+		org.dvb.media.CAStopEvent
+		org.dvb.dsmcc.ServiceXFRReference
+
+		Partially implemented
+		org.dvb.event.RepositoryDescriptor
+		
+		Commented
+		org.dvb.io.ixc.IxcRegistry
+
+
+18.11.2004	Fully implemented
+		org.dvb.io.persistent.FileAccessPermissions
+	
+		Partially implemented
+		org.davic.net.tuning.StreamTable
+		org.davic.net.tuning.NetworkInterfaceEvent
+		org.davic.net.tuning.NetworkInterfaceController
+		org.dvb.dsmcc.DSMCCStream
+		org.dvb.io.persistent.FileAttributes
+
+14.11.2004	Implemented
+		org.davic.net.ca.CAException
+		org.davic.net.ca.CAMessage
+		org.davic.net.ca.DescrambleEvent
+		org.davic.net.ca.StartMMIEvent
+		org.davic.net.ca.SessionOpenedEvent
+		org.davic.net.ca.NewModuleEvent
+		org.davic.net.ca.MMIActiveEvent		
+		org.davic.mpeg.sections.ForcedDisconnectedEvent
+		org.davic.mpeg.sections.FilterResourcesAvailableEvent
+		org.davic.mpeg.sections.EndOfFilteringEvent
+		
+		Partial implementation
+		org.davic.net.Locator
+		org.davic.net.dvb.DvbNetworkBoundLocator
+		org.davic.net.ca.CAModuleManager
+		org.davic.net.ca.DescramblerProxy
+		org.davic.net.ca.Text
+		org.davic.net.ca.ModuleResponseEvent
+		org.davic.net.ca.MMIObject
+		org.davic.net.ca.MMIEvent	
+		org.davic.net.ca.MessageEvent	
+		org.davic.net.ca.List	
+		org.davic.net.ca.Enquiry
+		org.davic.mpeg.ElementaryStream
+		org.davic.mpeg.TuningException
+		org.davic.mpeg.TransportStream	
+		org.davic.mpeg.Service	
+		org.davic.mpeg.dvb.DvbTransportStream
+		org.davic.mpeg.dvb.DvbService		
+		org.davic.mpeg.dvb.DvbElementaryStream
+		org.davic.mpeg.sections.VersionChangeDetected
+		org.davic.mpeg.sections.TableSectionFilter
+		org.davic.mpeg.sections.SimpleSectionFilter
+		org.davic.mpeg.sections.SectionFilterGroup
+		org.davic.mpeg.sections.SectionFilter
+		org.davic.mpeg.sections.Section
+		
+		Added docs
+		org.davic.net.ca.CAModule
+		org.davic.mpeg.NotAuthorizedInterface	
+		org.davic.mpeg.NotAuthorizedException	
+
+4.11.2004 	org.dvb.ui.DVBGraphicsImpl added createGraphics(Graphics2D g)
+
+26.10.2004	interface org.openmhp.adaptation.graphics.ApplicationImageProvider
+
+1.0.2 --------- release 1.10.2004
+		256 fully implemented classes
+		99 partially implemented classes
+		72 not implemented classes
+
+29.9.2004	Added checkbox that can be used to select to use own jpegs as a background image.
+		If the checkbox is not selected, the default background image is shown, IF there
+		is no iframe-conversion program selected.
+		
+		User has to use Java compliant image formats, such as JPG, GIF and PNG. If you have
+		set convert.exe's application path and selected to use own background images, an
+		nullpointer error will occur. 
+		
+		Added additional classpath configuration window. Select File > Configure and select
+		from the opened window tab named Classpath.
+		
+		User can now set additional classpath if needed. The additional classpath is added
+		to the classpath of each launched xlet. 
+
+28.9.2004	IFrame conversion program can be now set from the Application Manager. Select
+		File > Configure and select from the opened window tab named IFrames. Use browse
+		button to locate the Imagemagick's executable 'convert'.
+			
+		Changed org.havi.ui.HBackgroundImage to try IFrame conversion only if conversion
+		program is set by user.
+
+15.9.2004	Created CATVRCInterface and implemented some methods RCInterfaceManager.
+		Fixed another bug in the VideoLayer. Before fix the video was not shown, if
+		the video was first scaled down and then scaled back with scaling factors (1,1).
+
+7.9.2004	Made some changes to org.dvb.net.rc.RCInterfaceManager. The class is still partially
+		implemented.
+
+
+6.9.2004	Fixed problem with test image (video). A bug was reported that causes MHPTester to 
+		show only white screen. The reason is the replacement of java.awt.Graphics with
+		org.dvb.ui.DVBGraphics.
+		TODO: Check painting problem with DVBGraphicsImpl
+
+
+25.8.2004	Implemented a functionality that checks if the application has used colors outside of the MHP
+		palette. This is a fast hack, so it might get more speed in the future. Press right mouse button
+		over the application window, and select "Check non-MHP colors". Every pixel with non-MHP color
+		will be set to bright green.
+
+
+24.8.2004	Implemented Info window for TVScreen. Now user can open a info window from the floating menu
+		that opens by clicking the right mouse button. User can see the current mouse position,
+		decimal color value from current pixel, hex color value from current pixel and if mouse is dragged
+		the selected region size.
+		
+
+22.6.2004	Implemented a small example application for presenting colors. The application will paint a colorful
+		rectangle with thousands of colors. You can see how the colors are reduced by selecting the paint mode
+		"MHP palette".
+	
+		Implemented org.openmhp.util.MHPPaletteUtil which can be used to convert colors to
+		MHP palette.
+
+		Implemented a method that sets org.dvb.ui.DVBGraphicsImpl in to paletted or non-paletted state.
+		In a paletted state, all setColor() calls are checked with MHPPaletteUtil. This results graphics
+		to be painted with MHP palette.
+		Palette or non-palette mode can be changed by clicking right mouse button over application window.
+		Palette selector popup was implemented to the class org.openmhp.system.TVScreen.
+		TODO: move org.dvb.ui.DVBGraphicsImpl in to the correct package!
+		TODO: convert images to MHP palette
+
+21.6.2004	Implemented Configuration window. Window can be opened from Appman's menubar. At the moment, nothing
+		can be configured.
+
+14.6.2004	Fixed resize bug in org.havi.ui.HStillImageBackgroundConfiguration
+		
+		Fixed bug in looping UserEvents in org.dvb.event.EventManager
+		
+		Added paint method to HContainer. It seems that if the super.paint(g) is called
+		in a direct child of AWT-component, the used DVBGraphics object disappears. This results
+		in ClassCastException when trying to use DVBGraphics methods in child component's
+		paint-method.
+
+		
+
+--------- 1.0.1
+
+28.5.2004	I have implemented a simple system that reads a EIT-information file
+		captured with DVBSnoop. This is just a test, and I think I will comment
+		it our from the release. You can turn it on from org.openmhp.system.MHPDevice, lines 91-92.
+
+13.5.2004	Started to implement SIDatabase and other org.dvb.si-classes.
+
+28.4.2004	Changed SubtitleLayer to do repaint only if subtitles are on.
+		Subtitles are now optional. You can start and stop subtitles from application manager's properties tab. 
+
+15.4.2004	org.havi.ui.HSound is implemented.
+			FIXME: Method set(byte[] data) is still a hack.
+
+14.4.2004	Found and fixed bug that slows down Java and your whole workstation. 
+			AWTVideoSizeControl and BackgroundVideoPresentationControl
+			both are now working properly.
+
+5.4.2004	Mapped HRcCapabilities, HKeyCapabilities and HEventRepresentation through adaptation layer.
+			Adaptation layer has now class org.openmhp.adaptation.event.HEventCapabilities which describes
+			supported remote control and keyboard event. 
+			TODO: remove events that are not supported with current remote control graphics
+
+--------- 1.0
+
+19.3.2004	Created src and bin packages for distribution.
+			TODO: still problems with classpaths
+
+17.3.2004	Adding subtitles resulted errors in repaint.
+			TODO: check painting DONE: 28.4.2004
+			TODO: make subtitles optional in Appman DONE: 28.4.2004
+
+16.3.2004	Namespace changed to org.openmhp.
+			Today there are 21948 lines of code (comments included).
+
+12.3.2004	Checked some classes for errors.
+			Created subtitles for SubtitleLayer.
+			Created SubtitlingLanguageControl that controls SubtitleLayer.
+
+7.3.2004	Current statistics:
+			87 not implemented classes
+			77 partially implemented classes
+			232 fully implemented classes
+			---
+			396 inspected classes together
+
+3.3.2004	Wrote user guide, faq, history, known bugs and technical
+
+2.3.2004	Updated filenames and removed unused classes, images and text files.
+			Wrote guides for downloading and installation.
+
+1.3.2004	New Application Manager.
+
+25.2.2004	Added variables in com.axel.mhp.system.Constants
+
+24.2.2004	Added mechanism for setting classloader info on or off.
+
+13.2.2004
+		Last three days I have looked through interfaces, events and exceptions. Many, but not all
+		of them are implemented.
+		Current statistics:
+			in org-packages there are 273 inspected classes (140 not inspected)
+			from inspected classes there are 
+			212 fully implemented
+			31 partially implemented and
+			30 not implemented classes
+		It means that more than half of the org-classes can be implemented internally (within core java).
+		At the moment there are 14881 lines of code in org-packages (comments are included).
+		org.havi.ui.event-package almost ready, mappings to the adaptation layer are missing
+			TODO: create object that describes platform capabilities
+
+
+11.2.2004	Added method printMe(int type) to com.axel.mhp.system.Out
+			Method prints its type, class and method to system out.
+			Method does not need any specific arguments, the method finds
+			out who was the calling class and method.
+			FIXME: Change the code so that Exception is thrown only when needed
+
+10.2.2004 	DVBClassLoader implemented
+			DVBClassLoaderImpl implemented, classes are not tested but the classloader itself should work.
+			FIXME: Currently no security checks
+			
+			UserEvents are added to org.dvb.event.EventManager,method fireUserEvent is fixed.
+			FIXME: In some cases events are not passed, check how it should be done.
+			

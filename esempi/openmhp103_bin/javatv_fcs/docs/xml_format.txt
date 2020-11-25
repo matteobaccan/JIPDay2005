@@ -1,0 +1,521 @@
+       
+    __XML FORMAT FOR THE JAVA TV[TM] API REFERENCE IMPLEMENTATION__
+                             
+                             11/15/2000
+
+Copyright 2000, Sun Microsystems, Inc. 
+------------------------------------------------------------------------
+TABLE OF CONTENTS
+
+INTRODUCTION
+OVERVIEW OF SI ELEMENTS IN THE XML DOCUMENT
+ELEMENT AND ATTRIBUTE REQUIREMENTS
+HOW TO LAUNCH AN XLET FROM XML
+HOW TO INTRODUCE CHANGES TO THE SI DATABASE AFTER BOOTUP
+SERVICE AND LOCATOR TRANSFORMATION
+KNOWN ISSUES 
+------------------------------------------------------------------------
+
+
+INTRODUCTION
+------------
+
+The Java TV[TM] API reference implementation (RI) allows the population
+of the SI database via an XML document.  Upon startup, the RI populates
+its internal SI database with data in the XML document, which is
+specified in the javatv.properties file.  The RI will also capture any
+changes to the XML document; if a user modifies the XML document after
+the RI has started, the RI will detect the change and modify the SI
+database accordingly.  To customize the RI, the user needs to know the
+XML format the RI expects to read.
+
+This document provides guidelines for configuring the SI settings in the
+XML document, which is defined in Document Type Definition (DTD).  Also
+included in this document are tips on the elements and/or attributes used
+in the RI and what values are expected when you customize your XML
+document.
+
+
+OVERVIEW OF SI ELEMENTS IN THE XML DOCUMENT
+-------------------------------------------
+
+The SI XML document defines a top-level element, TestData, which contains
+an optional header and one or more DataBundle elements.  Each DataBundle
+is a complete set of SI data for the RI.
+
+Below is an overview of the elements that may be defined once in
+DataBundle:
+
+* BundleDescription -- textual description for the DataBundle element 
+* PreferredLanguage -- sets javax.tv.service.SIManager's PreferredLanguage 
+
+Below is an overview of the elements that may be defined multiple times 
+in DataBundle:
+
+* Bouquet          -- data for javax.tv.service.transport.Bouquet
+* ContentRatingAdvisory 
+                   -- data for javax.tv.service.guide.ContentRatingAdvisory
+* FavoriteService  -- sets javax.tv.service.navigation.FavoriteServicesName 
+* IPDatagram       -- data for javax.tv.net
+* Network          -- data for javax.tv.service.transport.Network 
+* ProgramEvent     -- data for javax.tv.service.guide.ProgramEvent 
+* ProgramSchedule  -- data for javax.tv.service.guide.ProgramSchedule
+* Rating           -- ratings for rating dimension
+* RatingDimension  -- data for javax.tv.service.navigation.RatingDimension
+* RemoveBouquet    -- an element to remove a Bouquet object from the SI database
+* RemoveList       -- list of SIElements to remove from the SI database if
+                      the SIElement is already in the database
+* RemoveNetwork    -- an element to remove a Network object from the SI database
+* RemoveProgramEvent 
+                   -- an element to remove a ProgramEvent object from the SI 
+                      database
+* RemoveService    -- an element to remove a Service object from the service 
+		      cache 
+* RemoveServiceComponent 
+                   -- an element to remove a ServiceComponent object from the 
+                      SI database
+* RemoveServiceDetails   
+                   -- an element to remove a ServiceDetails object from the SI 
+                      database
+* RemoveSIDatabase -- resets the SI database by removing every SIElement in it
+* RemoveTransportStream  
+                   -- an element to remove a TransportStream object from the
+                      SI database 
+* Service          -- data for javax.tv.service.Service 
+* ServiceComponent -- data for javax.tv.service.navigation.ServiceComponent 
+* ServiceComponentData 
+                   -- defines ProgramEvent-tied or Service-tied data to be
+                      used by Xlet
+* ServiceDetails   -- data for javax.tv.service.navigation.ServiceDetails
+* ServiceTransforms   
+                   -- defines the transformation rules between transport
+                      independent and dependent services 
+* TransportStream  -- data for javax.tv.service.transport.TransportStream
+* Xlet             -- data related to javax.tv.xlet.Xlet  
+
+
+ELEMENT AND ATTRIBUTE REQUIREMENTS
+----------------------------------
+
+* TestData
+
+  This is a top-level element for the RI's SI database.  Testdata
+  contains a DataBundle element and an optional Heading element.
+
+* Heading 
+
+  Heading is used to provide textual information about the XML document.
+  Heading is not processed by the RI.
+
+* DataBundle
+
+  The DataBundle element is a large collection of various elements for
+  SIElements and other data for the RI.  It may contain one instance of
+  the elements BundleDescription and PreferredLanguage.  DataBundle can 
+  define multiple instances of the elements Bouquet, FavoriteService, 
+  IPDatagram, Network, RatingDimension, RemoveList, RemoveSIDatabase, 
+  ServiceTransforms, Service, TransportStream, and Xlet.
+
+  The attribute defined for DataBundle is as follows:
+  - Name, a unique element identifier for DataBundle. 
+  
+* BundleDescription   
+
+  This optional element provides a textual description for the DataBundle
+  element.
+
+* PreferredLanguage
+
+  This element defines the preferred language for SIManager. 
+
+  The attribute defined for PreferredLanguage is as follows:
+  - Value (String), this is typically a three-character language code 
+    as specified by ISO 639.2/B, but could be system dependent.
+
+* Bouquet
+
+  This element defines the data for the Bouquet class. 
+   
+  Attributes defined for Bouquet are as follows:
+  - Bouquet ID (integer) 
+  - Bouquet name (String) 
+  - ServiceInformationType (String), this should be the String constant 
+    defined in javax.tv.service.ServiceInformationType.
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.   
+
+* ContentRatingAdvisory 
+
+  This element defines the data for a ContentRatingAdvisory that is
+  associated with the ProgramEvent. 
+ 
+  Attributes defined for ContentRatingAdvisory are as follows:
+  - DimensionName (String), should be a string defined in RatingDimension 
+    element's name attribute.
+  - RatingName (String), a string defined in Rating element's name
+    attribute.
+  - RatingValue (String), this attribute is currently unused. 
+
+* FavoriteService
+ 
+  This element defines the data for FavoriteServicesName.  A
+  PreferenceFilter created with this FavoriteServicesName accepts the
+  services associated with it.
+
+  Attributes defined for FavoriteService are as follows:
+  - Name (String), a name for this FavoriteService group, such as "Lucy's
+    favorites".
+  - ServiceNames (String), an array of Service names separated by commas.
+    ServiceNames defines the list of Services this FavoriteService 
+    group contains.
+
+* IPDatagram
+
+  This element defines the data that carries an IP datagram.  It should
+  be accessed through the javax.tv.net package.  This element is
+  currently unused in the RI.
+
+* Network
+
+  This element defines the data for the Network class.
+    
+  Attributes defined for Network are as follows:
+  - Network ID (integer) 
+  - Network name (String) 
+  - ServiceInformationType (String), this should be the String constant 
+    defined in javax.tv.service.ServiceInformationType.
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.
+
+* ProgramEvent 
+
+  This element defines the data for a ProgramEvent.  It may contain one or
+  more of the elements ContentRatingAdvisory, ServiceComponent, and 
+  ServiceComponentData.
+
+  Attributes defined for ProgramEvent are as follows:
+  - Name (String)
+  - Duration (integer), the duration of this ProgramEvent in minutes.
+  - StartTime, the starting time of this ProgramEvent.  A string "systime" 
+    sets the startTime of this ProgramEvent as the system time when the  
+    RI starts up and the SI database is populated; "+" indicates the systime
+    plus the specified minutes, and "-" indicates the systime minus the 
+    specified minutes.  For example, if an XML document sets the StartTime
+    at "+60" and the reference implementation boots up at August 17, 2000
+    2pm, this ProgramEvent would have a startTime of August 17, 2000 3pm.  
+    Duration and StartTime are added to set the EndTime of this
+    ProgramEvent.
+  - Description (String), a textual description of this ProgramEvent.
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.   
+
+* ProgramSchedule 
+
+  This element defines data for ProgramSchedule associated with a
+  ServiceDetails element.  ProgramSchedule can contain one or more 
+  ProgramEvent elements.
+
+  ProgramSchedule has no attributes associated with it.
+
+* Rating
+
+  This element defines a data component for RatingDimension, which can be 
+  accessed from RatingDimension.getRatingLevelDescription().
+    
+  Attributes defined for Rating are as follows:
+  - Name (String) 
+  - Description (String) corresponding to the Name.  An example of MPAA
+    rating is ["PG-13", "Parental Guidance under 13"]. 
+
+* RatingDimension
+
+  This element defines the data for the RatingDimension class.
+  RatingDimension can contain one or more Rating elements.
+  
+  The attribute defined for RatingDimension is as follows:
+  - DimensionName (String), an example of RatingDimension is used by the
+    MPAA (Motion Picture Association of America).
+
+* RemoveBouquet
+
+  This element requests the removal of a Bouquet from the SI database.
+ 
+  The attribute defined for RemoveBouquet is as follows:
+  - ID (integer), the identification number of the Bouquet to be removed. 
+  
+* RemoveList
+
+  This element specifies an SIElement to remove from the database.
+  RemoveList can contain many elements, including RemoveService,
+  RemoveProgramEvent, RemoveBouquet, RemoveCarousel, RemoveNetwork,
+  RemoveTransportStream, RemoveServiceDetails, and RemoveServiceComponent.
+
+* RemoveNetwork
+
+  This element requests the removal of a Network from the SI database.
+ 
+  The attribute defined for RemoveNetwork is as follows:
+  - ID (integer), the identification number of the Network to be removed. 
+ 
+* RemoveProgramEvent
+
+  This element requests the removal of a ProgramEvent from the SI database.
+ 
+  Attributes defined for RemoveProgramEvent are as follows:
+  - Service_Name (String), the name of the Service to which the target
+    ProgramEvent belongs.
+  - Program_Name (String), the name of the ProgramEvent to be removed.
+  
+* RemoveService
+
+  This element requests the removal of a Service from the SI database.
+ 
+  Attributes defined for RemoveService are as follows:
+  - Name (String), the name of the Service to be removed.
+  - Reason (String), the reason for this Service removal.
+     
+* RemoveServiceComponent
+
+  This element requests the removal of a ServiceComponent from the SI
+  database.
+ 
+  The attribute defined for RemoveServiceComponent is as follows:
+  - Name (String), the name of the ServiceComponent to be removed.
+  
+* RemoveServiceDetails
+
+  This element requests the removal of a ServiceDetails from the SI
+  database.
+ 
+  The attribute defined for RemoveServiceDetails is as follows:
+  - Name (String), the name of the ServiceDetails to be removed.
+
+* RemoveSIDatabase
+
+  RemoveSIDataBase is an element that requests the removal of every
+  SIElement in the SI database.  If this element is present in XML, the
+  database is flashed at the time the element is read into the RI.  
+  
+  This element does not have any attributes.
+
+* RemoveTransportStream
+
+  This element requests the removal of a TransportStream from the SI
+  database.
+ 
+  The attribute defined for RemoveTransportStream is as follows:
+  - ID (integer), the identification number of the TransportStream to be 
+    removed. 
+
+* Service
+  
+  This element defines data for the Service class.  Service can contain
+  oneServiceDetails element.  Note that if the service is defined as 
+  transport independent in the ServiceTransforms element, the service's
+  transport dependent information, such as ServiceDetails and ProgramEvents,
+  will be discarded from the database.
+  
+  Attributes defined for Service are as follows:
+  - Name(String), should be unique. 
+  - ServiceType (String), should be a String defined in 
+    javax.tv.service.ServiceType.
+  - SIType (String), should be a String defined in 
+    javax.tv.service.ServiceInformationType.
+  - Service Description (String)
+  - Service Number (integer) 
+  - Service Minor Number (integer)
+  - Simulation (path), the location of an MPEG stream that should be
+    associated with this service.
+  - Alternate (path), the location of an MPEG stream to be played when  
+    normal selection on this service fails and alternative selection is
+    needed.
+  - CALimit, or Conditional Access Limit (String), to restrict the access 
+    to this element.  The string should match one of the fields in 
+    javax.tv.service.selection.SelectionFailedEvent.  When this attribute 
+    is provided, an attempt to select this service will failand the
+    SelectionFailedEvent with this reason will be generated.
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.  
+  
+* ServiceComponent
+
+  This element defines data for ServiceComponent associated with a
+  ServiceDetails or a ProgramEvent. 
+
+  Attributes defined for ServiceComponent are as follows:
+  - Name (String), the name of this ServiceComponent. 
+  - Language (String), this is typically a three-character language code 
+    as specified by ISO 639.2/B, but could be system dependent.
+  - Stream-type (String), should be a string constant defined in the class
+    javax.tv.service.navigation.StreamType.
+  - Simulation (URL), an optional attribute to set the location of an MPEG 
+    file associated with this ServiceComponent element.  To make this
+    ServiceComponent carry an IP datagram to be retrieved by the 
+    javax.tv.net* Package, tie the location of the IP datagram simulation 
+    file to this attribute.
+  - Alternate (URL), an optional attribute to set the location of the
+    alternate MPEG file associated with this ServiceComponent element.
+  - AutoRun (boolean)
+  - CALimit, or Conditional Access Limit (String), to restrict the access 
+    to this element.  The string should match one of the fields in 
+    javax.tv.service.selection.SelectionFailedEvent.  When this attribute 
+    is provided, an attempt to select this service component will fail 
+    and the SelectionFailedEvent with this reason will be generated.
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.   
+
+* ServiceComponentData
+ 
+  This element defines the data associated with a ServiceComponent, in 
+  particular an Xlet.  If Xlet is specified in this attribute, XletManager 
+  launches this Xlet when this service is selected. 
+
+  Attributes defined for ServiceComponentData are as follows:
+  - Name (String), should be the class name of an Xlet.
+  - Language (String), this is typically a three-character language code 
+    as specified by ISO 639.2/B, but could be system dependent.
+  - Path (URL), an optional attribute to specify the location of the Xlet
+    other than at a class path.
+  - args (String), an optional attribute for passing in an argument to the
+    Xlet.  Strings should be separated by commas. These strings are returned
+    via XletContext.getXletProperty(XletContext.ARGS).
+  - AutoRun (boolean) 
+  - CALimit, or Conditional Access Limit (String), to restrict the access
+    to this element.  The string should match one of the fields in
+    javax.tv.service.selection.SelectionFailedEvent.  When this attribute
+    is provided, an attempt to select this service component will fail and
+    the SelectionFailedEvent with this reason will be generated.
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.   
+
+* ServiceDetails
+ 
+  This element defines data for the ServiceDetails class.  ServiceDetails
+  can contain multiple ServiceComponent elements, ProgramSchedule elements, 
+  and ServiceComponentData elements.
+
+  Attributes defined for ServiceDetails are as follows:
+  - LongName (String), a unique name of this ServiceDetails.
+  - ProviderName (String), for ServiceProviderInformation.
+  - DeliverySystemType (String), should be a string constant defined in the 
+    class javax.tv.service.DeliverySystemType.
+  - Description (String), data for ServiceDescription.
+  - CASystemIDs (array of integer), data for CASystemID, or Conditional 
+    Access System Identification.  
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.   
+
+* ServiceTransforms
+
+  This element defines a relationship between transport independent 
+  service and dependent services.  Services that appear in this element 
+  should also be defined in the Service attribute with the same name.
+
+  Attributes defined for ServiceTransforms are as follows:
+  - Name (String), the name of the transport independent service.
+  - List(String), a list of service names separated by commas.  These
+    services are transport dependent services associated with the transport
+    independent service specified with theServiceTransforms "Name" 
+    attribute.
+
+* TransportStream 
+ 
+  This element defines the data for the TransportStream class.  
+
+  Attributes defined for TransportStream are as follows:
+  - TransportStream ID (integer) 
+  - TransportStream name (String) 
+  - ServiceInformationType (String), this should be the String constant 
+    defined in javax.tv.service.ServiceInformationType. 
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.
+  - Network ID (integer), associates the Network object this TransportStream 
+    is carried with.  Note that the integer should be equal to one of the
+    Network ID attributes defined in the Network element.    
+
+* Xlet
+   
+  This element defines the data for Xlet.  This Xlet would not be tied to a
+  Service and will be launched at the time the SI database is being
+  populated. 
+
+  Attributes defined for Xlet are as follows:
+  - Name (String), the class name of the Xlet.  
+  - Path (URL), the location of the Xlet.
+  - Args (String), an argument to the Xlet, separated by commas.  
+    The values are returned as an array of Strings for this Xlet's 
+    XletContext.getXletProperty(XletContext.ARGS).
+  - transmittime (integer), the delay, in seconds, at which this element 
+    should be added to the SI database.   
+
+
+HOW TO LAUNCH AN XLET FROM XML
+------------------------------
+
+There are two types of Xlet that can be executed from XML, a resident
+Xlet and a service-tied Xlet.  A resident Xlet launches upon bootup and
+does not terminate unless the application, or another program, requests
+XletManager to do so.  A service-tied Xlet runs only when its associated
+service is selected and being presented.
+
+A resident Xlet can be specified with the XLET tag.  Place the name of
+the Xlet in the NAME attribute and be certain that PATH contains the name
+of the Xlet.  The Xlet launches at the time the RI populates the SI
+database.
+
+For the service-tied Xlet, use the ServiceComponentData element.  It can
+be tied to ProgramEvent or ServiceDetails.  In this case, the Xlet
+launches upon selection of the particular Service to which Xlet is tied.
+
+
+HOW TO INTRODUCE CHANGES TO THE SI DATABASE AFTER BOOTUP
+--------------------------------------------------------
+
+After the reference implementation boots, the XML file is periodically
+checked for changes.  When an XML change is detected, the RI adjusts the
+content of the SI database accordingly and appropriate SIChangeEvents
+are delivered to registered listeners.
+
+Note that the removal of elements from the SI database needs to be done
+through the "Remove*" tag in XML.  Physically removing the entry from the
+XML will not generate the event.
+
+
+SERVICE AND LOCATOR TRANSFORMATION 
+----------------------------------
+
+A service in the Java TV API can be transport independent or transport
+dependent.
+
+The mapping between transport independent and dependent services can be
+specified in the ServiceTransforms tag.  It is important that all
+services in a ServiceTransforms element have a corresponding Service
+specification with the Service tag.  The RI treats all services as
+transport dependent unless defined in the ServiceTransforms "NAME"
+attribute.
+
+
+KNOWN ISSUES
+------------
+
+- One Transport for All
+  The RI does not provide a way to specify multiple transport objects in
+  this release.  Therefore, there is no such tag as <TRANSPORT> in XML.  
+  All transport dependent elements are assigned to a single Transport 
+  object of the type UNKNOWN.
+
+- Conditional Access Specification
+  XML provides two places to specify a Conditional Access Limit to the 
+  element.  One is the CALimit attribute in Service/ServiceComponent;
+  the other is the CASystemsIDs attribute in the ServiceDetails element.  
+  CALimit defines the actual error condition for selecting that specific
+  element, while CASystemID provides further information about the 
+  limitation.  Make sure when assigning one attribute, the other attribute
+  is also specified in the corresponding element.  This is to eliminate
+  the condition where ServiceDetails.isFree() reports a condition that does
+  not reflect the actual limitation to the Service/ServiceComponent 
+  selection.
+ 
+-----------------------------------------------------------------------
+Copyright 2000, Sun Microsystems, Inc. 
+

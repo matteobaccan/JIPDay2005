@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TestData SYSTEM "JavaTVServiceFile.dtd">
+<TestData>
+<DataBundle NAME="RemoveEventService">
+<RemoveList>
+	<RemoveProgramEvent SERVICE_NAME="OM" PROGRAM_NAME="TBD2" />
+	<RemoveService NAME="OM" REASON="Service_Vanished" />
+</RemoveList>
+</DataBundle>
+</TestData>

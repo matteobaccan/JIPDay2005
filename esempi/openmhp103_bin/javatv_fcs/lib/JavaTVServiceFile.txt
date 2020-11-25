@@ -1,0 +1,6 @@
+#Emulation properties
+
+JavaTVServiceFile=../data/JavaTVServiceFile.xml
+JavaTVServiceInterval=1000
+JavaTVServiceFileHandler=com.sun.tv.receiver.ReceiverFile
+

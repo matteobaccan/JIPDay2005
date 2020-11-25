@@ -1,0 +1,94 @@
+.
+.	This file contains classes that are allowed in the MHP system. The classloader will check if the class to be loaded
+.	is included here. If it is not, an error message is printed to output.
+.	So, classes outside MHP specification can be used, but one must keep in mind that those applications will probably
+.	not work in a true MHP environment (MHP STB).
+.
+.
+.
+.	Empty line terminates reading this file. Do not add empty lines between classes, use "#" or something else instead.
+.
+. java.awt.
+.
+java.awt.Adjustable
+java.awt.AWTError
+java.awt.AWTEvent
+java.awt.AWTEventMulticaster
+java.awt.AWTException
+java.awt.BorderLayout
+java.awt.CardLayout
+java.awt.Color
+java.awt.Component
+java.awt.Container
+java.awt.Cursor
+java.awt.Dimension
+java.awt.EventQueue
+java.awt.FlowLayout
+java.awt.Font
+java.awt.FontMetrics
+java.awt.Graphics
+java.awt.GridBagConstraints
+java.awt.GridBagLayout
+java.awt.GridLayout
+java.awt.IllegalComponentStateException
+java.awt.Image
+java.awt.Insets
+java.awt.ItemSelectable
+java.awt.LayoutManager
+java.awt.LayoutManager2
+java.awt.MediaTracker
+java.awt.Point
+java.awt.Polygon
+java.awt.Rectangle
+java.awt.Shape
+java.awt.Toolkit
+.
+. java.awt.event
+.
+java.awt.event.ActionListener 
+java.awt.event.AdjustmentListener 
+java.awt.event.ComponentListener 
+java.awt.event.ContainerListener 
+java.awt.event.FocusListener 
+java.awt.event.ItemListener 
+java.awt.event.KeyListener
+java.awt.event.MouseListener 
+java.awt.event.MouseMotionListener 
+java.awt.event.TextListener 
+java.awt.event.WindowListener 
+java.awt.event.ActionEvent 
+java.awt.event.AdjustmentEvent 
+java.awt.event.ComponentAdapter 
+java.awt.event.ComponentEvent 
+java.awt.event.ContainerAdapter 
+java.awt.event.ContainerEvent 
+java.awt.event.FocusAdapter 
+java.awt.event.FocusEvent 
+java.awt.event.InputEvent 
+java.awt.event.ItemEvent 
+java.awt.event.KeyAdapter 
+java.awt.event.KeyEvent 
+java.awt.event.MouseAdapter 
+java.awt.event.MouseEvent 
+java.awt.event.MouseMotionAdapter 
+java.awt.event.PaintEvent 
+java.awt.event.TextEvent 
+java.awt.event.WindowAdapter 
+java.awt.event.WindowEvent 
+.
+. java.awt.image.
+.
+java.awt.image.ImageConsumer 
+java.awt.image.ImageObserver
+java.awt.image.ImageProducer 
+java.awt.image.AreaAveragingScaleFilter 
+java.awt.image.ColorModel 
+java.awt.image.CropImageFilter 
+java.awt.image.DirectColorModel 
+java.awt.image.FilteredImageSource 
+java.awt.image.ImageFilter 
+java.awt.image.IndexColorModel 
+java.awt.image.MemoryImageSource 
+java.awt.image.PixelGrabber 
+java.awt.image.RGBImageFilter 
+java.awt.image.ReplicateScaleFilter 
