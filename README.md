@@ -1,5 +1,5 @@
 # JIPDay2005
-Slide del mio intervento a JIPDay2005
+Slide ed esempi del mio intervento al JIPDay2005
 
 ## Conoscere il Digitale Terrestre e sviluppare Xlet con strumenti open source
 50 minuti per introdursi al mondo del digitale terrestre.
